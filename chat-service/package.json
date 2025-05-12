@@ -8,7 +8,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@types/amqplib": "^0.10.7",
     "@types/express": "^5.0.1",
@@ -24,5 +23,6 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "uuid": "^11.1.0"
-  }
+  },
+  "description": ""
 }
