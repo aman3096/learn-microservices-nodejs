@@ -11,6 +11,20 @@ const send = async (request: AuthRequest, response: Response) => {
 
         validateReceiver(_id, receiverId);
 
+        const newMessage = await Message.create({
+            senderId: _id,
+            receiverId,
+            message,
+        });
+
+        // await handleMessageReceived(name, email, receiverId, message);
+
+        return response.json({
+            status: 200,
+            message: "Message sent successfully!",
+            data: newMessage,
+        });
+
     } catch(err: any) {
         console.error(err);
         return response.json({
