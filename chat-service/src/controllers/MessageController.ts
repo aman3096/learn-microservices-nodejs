@@ -7,7 +7,7 @@ const send = async (request: AuthRequest, response: Response) => {
     try {
 
         const { receiverId, message } = request.body;
-        const { _id, user, name } = request.user;
+        const { _id, email, name } = request.user;
 
         validateReceiver(_id, receiverId);
 
@@ -17,7 +17,7 @@ const send = async (request: AuthRequest, response: Response) => {
             message,
         });
 
-        // await handleMessageReceived(name, email, receiverId, message);
+        await handleMessageReceived(name, email, receiverId, message);
 
         return response.json({
             status: 200,
@@ -46,11 +46,11 @@ const validateReceiver = (senderId: string, receiverId: string) => {
 };
 
 
-const getConversation = (req: Request, res: Response) => {
+const getConversation = async (req: AuthRequest, res: Response) => {
     try {
 
         const { receiverId } = req.params;
-        const senderId = req.user._id,
+        const senderId = req.user._id;
 
         const messages = await Message.find({
             $or: [
