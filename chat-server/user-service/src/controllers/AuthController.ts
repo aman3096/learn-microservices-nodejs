@@ -8,7 +8,7 @@ import { IUser } from '../database';
 const jwtSecret = config.JWT_SECRET as string;
 const COOKIE_EXPIRATION_DAYS = 90;
 const expirationDate = new Date(
-    Date.now() + COOKIE_EXPIRATION_DAYS* 24*60*60*1000
+    Date.now() + COOKIE_EXPIRATION_DAYS* 24 * 60 * 60 * 1000
 )
 
 const cookieOptions = {
@@ -25,7 +25,7 @@ const register = async (req: Request, res: Response )=>{
             throw new ApiError(400, "User Already exists");
         }
 
-        const user = User.create({
+        const user = await User.create({
             name,
             email,
             password: await encryptPassword(password),

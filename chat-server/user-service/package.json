@@ -16,12 +16,12 @@
     "start": "NODE_ENV=production nodemon build/server.js"
   },
   "dependencies": {
-    "@types/amqplib": "^0.10.7",
+    "@types/amqplib": "0.10.6",
     "@types/bcryptjs": "^2.4.6",
     "@types/express": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/validator": "^13.12.3",
-    "amqplib": "^0.10.7",
+    "amqplib": "0.10.6",
     "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
